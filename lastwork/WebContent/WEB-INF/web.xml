@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>lastwork</display-name>
+  <welcome-file-list>
+    <welcome-file>my12</welcome-file>
+  </welcome-file-list>
+  
+   <filter>
+     <filter-name>character</filter-name>
+     <filter-class>com.hk.filter.CharacterEncodingFilter</filter-class>
+     
+     <init-param>
+        <param-name>encording</param-name>
+        <param-value>utf-8</param-value>
+     </init-param>
+  </filter>
+  <filter-mapping>
+     <filter-name>character</filter-name>
+      <url-pattern>*.do</url-pattern>
+  </filter-mapping>
+  
+  <filter>
+     <filter-name>security</filter-name>
+     <filter-class>com.hk.filter.SecurityFilter</filter-class>
+  </filter>
+  <filter-mapping>
+     <filter-name>security</filter-name>
+      <url-pattern>*.jsp</url-pattern>
+  </filter-mapping>
+  
+  <servlet>
+  <servlet-name>list</servlet-name>
+  <servlet-class>com.hk.servlet.EmpListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>list</servlet-name>
+  <url-pattern>/list.do</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+  <servlet-name>del</servlet-name>
+  <servlet-class>com.hk.servlet.EmpDelServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>del</servlet-name>
+  <url-pattern>/del.do</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+  <servlet-name>add</servlet-name>
+  <servlet-class>com.hk.servlet.EmpAddServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>add</servlet-name>
+  <url-pattern>/add.do</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+  <servlet-name>toupdate</servlet-name>
+  <servlet-class>com.hk.servlet.EmpToUpdateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>toupdate</servlet-name>
+  <url-pattern>/toUpdate.do</url-pattern>
+  </servlet-mapping>
+   <servlet>
+  <servlet-name>update</servlet-name>
+  <servlet-class>com.hk.servlet.EmpUpdateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>update</servlet-name>
+  <url-pattern>/update.do</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+	<servlet-name>hk12</servlet-name> 
+	<servlet-class>com.hk.servlet.CheckLoginServlet</servlet-class> 
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>hk12</servlet-name>
+  	<url-pattern>/my12</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+	<servlet-name>hk13</servlet-name> 
+	<servlet-class>com.hk.servlet.EmpLoginServlet</servlet-class> 
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>hk13</servlet-name>
+  	<url-pattern>/my13</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+	<servlet-name>loginout</servlet-name> 
+	<servlet-class>com.hk.servlet.EmpLogoutServlet</servlet-class> 
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>loginout</servlet-name>
+  	<url-pattern>/logout.do</url-pattern>
+  </servlet-mapping>
+</web-app>
